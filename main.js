@@ -39,17 +39,18 @@ const ballTex = textureLoader.load('/img/textures/aerial_rocks_04_diff_1k.jpg')
 const ballNormal = textureLoader.load('/img/textures/aerial_rocks_04_disp_1k.jpg')
 const ballRough = textureLoader.load('/img/textures/aerial_rocks_04_rough_1k.jpg')
 
-const matcapTexture1 = textureLoader.load('/img/matcaps/01.png')
-const matcapTexture2 = textureLoader.load('/img/matcaps/02.png')
+const matcapTexture1 = textureLoader.load('/img/matcaps/03.png')
+const matcapTexture2 = textureLoader.load('/img/matcaps/03.png')
+const matcapTexture3 = textureLoader.load('/img/matcaps/03.png')
 
 
 
 // TORUS
-const geo = new THREE.TorusGeometry(15,5,16,100)
+const geo = new THREE.ConeBufferGeometry(10,10,4)
 const mat = new THREE.MeshStandardMaterial({ map: matcapTexture2 })
 const torus = new THREE.Mesh(geo,mat)
-torus.position.y = -3; 
-torus.position.z = -15; 
+torus.position.z = 10; 
+torus.position.z = 10; 
 scene.add(torus)
 
 // BelloCube
@@ -57,10 +58,12 @@ scene.add(torus)
 
 
 const bello = new THREE.Mesh(
-  new THREE.BoxBufferGeometry(5,5,5,),
+  new THREE.BoxBufferGeometry(7,10,1),
   new THREE.MeshBasicMaterial( { map: belloTex } )
 )
+bello.rotation.y = 20
 bello.position.x = -10
+bello.position.z = -5
 scene.add(bello)
 
 // Basketball
@@ -71,7 +74,7 @@ const ball = new THREE.Mesh(
   new THREE.MeshStandardMaterial( { map: matcapTexture2} )
 )
 ball.position.setX(-30)
-ball.position.setZ(30)
+ball.position.setZ(-30)
 scene.add(ball)
 /**
  * LIGHTS
@@ -112,7 +115,7 @@ const addStar = () => {
 }
 Array(200).fill().forEach(addStar)
 
-const imgTexture = new THREE.TextureLoader().load('/img/bg3.jpg')
+const imgTexture = new THREE.TextureLoader().load('/img/bg2.png')
 scene.background = imgTexture
 
 /**
@@ -124,12 +127,12 @@ const controls = new OrbitControls(camera,renderer.domElement)
 // MOVE CAMERA
 const moveCamera = () => {
   const t = document.body.getBoundingClientRect().top
-  ball.rotation.x += 0.05 
-  ball.rotation.y += 0.075 
-  ball.rotation.z += 0.05 
+  ball.rotation.x += 0.0005 
+  ball.rotation.y += 0.00075 
+  ball.rotation.z += 0.005 
 
   
-  bello.rotation.y += 0.05 * 0.1
+  bello.rotation.y += -(0.05 * 0.1) 
   
   // bello.rotation.z += 0.05 
   camera.position.x =  t * -0.01 
