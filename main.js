@@ -33,11 +33,11 @@ const gridHelper = new THREE.GridHelper(200,50);
 // TEXTURES
 const textureLoader = new THREE.TextureLoader()
 
-const belloTex = textureLoader.load('https://i.imgur.com/7jHmkM6.jpeg')
+const belloTex = textureLoader.load('https://raw.githubusercontent.com/sofianbello/ThreeFolio/main/img/sdlfsdfgklj.jpg')
 // Not Used
-const ballTex = textureLoader.load('/img/textures/aerial_rocks_04_diff_1k.jpg')
-const ballNormal = textureLoader.load('/img/textures/aerial_rocks_04_disp_1k.jpg')
-const ballRough = textureLoader.load('/img/textures/aerial_rocks_04_rough_1k.jpg')
+// const ballTex = textureLoader.load('/img/textures/aerial_rocks_04_diff_1k.jpg')
+// const ballNormal = textureLoader.load('/img/textures/aerial_rocks_04_disp_1k.jpg')
+// const ballRough = textureLoader.load('/img/textures/aerial_rocks_04_rough_1k.jpg')
 
 const matcapTexture1 = textureLoader.load('https://raw.githubusercontent.com/nidorx/matcaps/master/1024/736655_D9D8D5_2F281F_B1AEAB.png')
 const matcapTexture2 = textureLoader.load('https://raw.githubusercontent.com/nidorx/matcaps/master/1024/3A2412_A78B5F_705434_836C47.png')
