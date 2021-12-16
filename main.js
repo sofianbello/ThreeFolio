@@ -34,7 +34,7 @@ const gridHelper = new THREE.GridHelper(200,50);
 const textureLoader = new THREE.TextureLoader()
 
 const belloTex = textureLoader.load('/img/Bello.jpg')
-
+// Not Used
 const ballTex = textureLoader.load('/img/textures/aerial_rocks_04_diff_1k.jpg')
 const ballNormal = textureLoader.load('/img/textures/aerial_rocks_04_disp_1k.jpg')
 const ballRough = textureLoader.load('/img/textures/aerial_rocks_04_rough_1k.jpg')
