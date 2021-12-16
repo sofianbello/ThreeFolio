@@ -1,3 +1,15 @@
+* 
+{
+  margin: 0;
+  padding: 0;
+}
+
+html, body 
+{
+  height: 100vh;
+  font-family: 'Playfair Display', serif;
+  color: white;
+}
 
 .webgl {
     position: fixed;
@@ -5,75 +17,18 @@
     left: 0;
     outline: none;
 }
-main {
-    width: 100vw;
-    color: white;
-    z-index: 99;
-    position: absolute;
-    width: 100%;
-    margin: 0px auto;
-    padding: 120px 0px;
-    
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-  }
-  
-  h1, h2, h3, blockquote {
-    font-family: elevon, sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
 
-  h1 {
-    text-shadow: 3px 3px 5px black;
-  }
-  
-  canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-  
-  
-  
-    header {
-      background: var(--dark-bg);
-      color: white;
-      grid-column: 2 / span 5;
-      font-size: 2.5rem;
-      /* padding: 2rem; */
-      margin-bottom: 1rem;
-    }
-  
-    section {
-      grid-column: 2 / 8;
-      padding: 1rem;
-      background: rgba(1, 44, 73, 0.9);
-      text-shadow: 2px 2px 1px black;
-      font-size: 1.25rem;
-      line-height: 1.5;
-      margin-top: 3rem;
-      margin-bottom: 10rem;
-    }
-  
-    blockquote {
-      margin: 0;
-      padding: 0;
-      grid-column: 2 / span 9;
-      margin-bottom: var(--spacing);
-    }
-  
-    blockquote p {
-      color: rgb(255, 255, 255);
-      /* background: rgba(1, 44, 73, 0.9); */
-      text-shadow: 3px 3px 5px black;
-      border-radius: 0px;
-      padding: 1px;
-      font-size: 4rem;
-      display: inline;
-      line-height: 1;
-    }
-  
-    .left {
-      grid-column: 6 / 12;
-    }
+.content {
+  position: absolute;
+  display: grid;
+  align-items: center;
+  z-index: 1;
+  height: 100%;
+  width: 100%;  
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 700;
+  margin-left: 10vw;
+}
