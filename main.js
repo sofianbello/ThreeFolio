@@ -33,14 +33,14 @@ const gridHelper = new THREE.GridHelper(200,50);
 // TEXTURES
 const textureLoader = new THREE.TextureLoader()
 
-const belloTex = textureLoader.load('/img/Bello.jpg')
+const belloTex = textureLoader.load('https://github.com/sofianbello/ThreeFolio/blob/main/img/Bello.jpg?raw=true')
 // Not Used
 const ballTex = textureLoader.load('/img/textures/aerial_rocks_04_diff_1k.jpg')
 const ballNormal = textureLoader.load('/img/textures/aerial_rocks_04_disp_1k.jpg')
 const ballRough = textureLoader.load('/img/textures/aerial_rocks_04_rough_1k.jpg')
 
-const matcapTexture1 = textureLoader.load('/img/matcaps/03.png')
-const matcapTexture2 = textureLoader.load('/img/matcaps/03.png')
+const matcapTexture1 = textureLoader.load('https://raw.githubusercontent.com/nidorx/matcaps/master/1024/736655_D9D8D5_2F281F_B1AEAB.png')
+const matcapTexture2 = textureLoader.load('https://raw.githubusercontent.com/nidorx/matcaps/master/1024/3A2412_A78B5F_705434_836C47.png')
 const matcapTexture3 = textureLoader.load('/img/matcaps/03.png')
 
 
@@ -115,7 +115,7 @@ const addStar = () => {
 }
 Array(200).fill().forEach(addStar)
 
-const imgTexture = new THREE.TextureLoader().load('/img/bg2.png')
+const imgTexture = new THREE.TextureLoader().load('https://images.unsplash.com/photo-1638932030844-b584074bd619?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2022&q=80')
 scene.background = imgTexture
 
 /**
