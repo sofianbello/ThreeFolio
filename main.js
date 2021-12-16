@@ -15,27 +15,64 @@ const sizeY = window.innerHeight
 
 
 // CAMERA
-const camera = new THREE.PerspectiveCamera(75, sizeX/sizeY, 0.1, 1000)
-camera.position.setZ(30)
+const camera = new THREE.PerspectiveCamera(75, sizeX/sizeY, 0.001, 1000)
+camera.position.setZ(3)
+camera.position.setX(30)
 scene.add(camera)
 
 /**
  * HELPERS
  */
 const gridHelper = new THREE.GridHelper(200,50);
-scene.add(gridHelper)
+// scene.add(gridHelper)
 
 /**
  * GEOMETRY
  */
 
-const geo = new THREE.TorusGeometry(10,3,16,100)
-const mat = new THREE.MeshBasicMaterial({
-  color: 0x00ff00,
-})
+// TEXTURES
+const textureLoader = new THREE.TextureLoader()
+
+const belloTex = textureLoader.load('/img/Bello.jpg')
+
+const ballTex = textureLoader.load('/img/textures/aerial_rocks_04_diff_1k.jpg')
+const ballNormal = textureLoader.load('/img/textures/aerial_rocks_04_disp_1k.jpg')
+const ballRough = textureLoader.load('/img/textures/aerial_rocks_04_rough_1k.jpg')
+
+const matcapTexture1 = textureLoader.load('/img/matcaps/01.png')
+const matcapTexture2 = textureLoader.load('/img/matcaps/02.png')
+
+
+
+// TORUS
+const geo = new THREE.TorusGeometry(15,5,16,100)
+const mat = new THREE.MeshStandardMaterial({ map: matcapTexture2 })
 const torus = new THREE.Mesh(geo,mat)
+torus.position.y = -3; 
+torus.position.z = -15; 
 scene.add(torus)
 
+// BelloCube
+
+
+
+const bello = new THREE.Mesh(
+  new THREE.BoxBufferGeometry(5,5,5,),
+  new THREE.MeshBasicMaterial( { map: belloTex } )
+)
+bello.position.x = -10
+scene.add(bello)
+
+// Basketball
+
+
+const ball = new THREE.Mesh(
+  new THREE.SphereBufferGeometry(3,24,24),
+  new THREE.MeshStandardMaterial( { map: matcapTexture2} )
+)
+ball.position.setX(-30)
+ball.position.setZ(30)
+scene.add(ball)
 /**
  * LIGHTS
  */
@@ -45,8 +82,8 @@ pointLight.position.set(20,20,20)
 
 const ambientLight = new THREE.AmbientLight(0xffffff)
 
-// scene.add(ambientLight)
-// scene.add(pointLight)
+scene.add(ambientLight)
+scene.add(pointLight)
 
 /** 
  * RENDERER
@@ -65,7 +102,7 @@ renderer.setSize(sizeX,sizeY)
  */
 const addStar = () => {
   const geometry = new THREE.SphereGeometry(0.25,24,24)
-  const material = new THREE.MeshBasicMaterial({ color: 0xffff00})
+  const material = new THREE.MeshStandardMaterial({ map: matcapTexture1})
   const star = new THREE.Mesh(geometry,material)
 
   const [x,y,z] =Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100) )
@@ -75,11 +112,33 @@ const addStar = () => {
 }
 Array(200).fill().forEach(addStar)
 
+const imgTexture = new THREE.TextureLoader().load('/img/bg3.jpg')
+scene.background = imgTexture
+
 /**
  * CONTROLS
  */
 
 const controls = new OrbitControls(camera,renderer.domElement)
+
+// MOVE CAMERA
+const moveCamera = () => {
+  const t = document.body.getBoundingClientRect().top
+  ball.rotation.x += 0.05 
+  ball.rotation.y += 0.075 
+  ball.rotation.z += 0.05 
+
+  
+  bello.rotation.y += 0.05 * 0.1
+  
+  // bello.rotation.z += 0.05 
+  camera.position.x =  t * -0.01 
+  camera.position.y =  t * -0.0002 
+  camera.position.z =  t * -0.0002 
+
+}
+document.body.onscroll = moveCamera
+
 /**
  * ANIMATE
  */
@@ -87,9 +146,9 @@ const controls = new OrbitControls(camera,renderer.domElement)
  function animate() {
   requestAnimationFrame(animate);
 
-  // torus.rotation.x += 0.01;
-  // torus.rotation.y += 0.005;
-  // torus.rotation.z += 0.01;
+  torus.rotation.x += 0.00005 * 0.5;
+  torus.rotation.y += 0.0005;
+  torus.rotation.z += 0.0005* 0.5;
 
   controls.update()
 
