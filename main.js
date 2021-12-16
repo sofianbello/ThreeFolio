@@ -33,7 +33,7 @@ const gridHelper = new THREE.GridHelper(200,50);
 // TEXTURES
 const textureLoader = new THREE.TextureLoader()
 
-const belloTex = textureLoader.load('https://github.com/sofianbello/ThreeFolio/blob/main/img/Bello.jpg?raw=true')
+const belloTex = textureLoader.load('https://i.imgur.com/7jHmkM6.jpeg')
 // Not Used
 const ballTex = textureLoader.load('/img/textures/aerial_rocks_04_diff_1k.jpg')
 const ballNormal = textureLoader.load('/img/textures/aerial_rocks_04_disp_1k.jpg')
@@ -58,7 +58,7 @@ scene.add(torus)
 
 
 const bello = new THREE.Mesh(
-  new THREE.BoxBufferGeometry(7,10,1),
+  new THREE.BoxBufferGeometry(7,10,0.3),
   new THREE.MeshBasicMaterial( { map: belloTex } )
 )
 bello.rotation.y = 20

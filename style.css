@@ -22,6 +22,10 @@ main {
     font-weight: 700;
     font-style: normal;
   }
+
+  h1 {
+    text-shadow: 3px 3px 5px black;
+  }
   
   canvas {
     position: fixed;
@@ -33,16 +37,18 @@ main {
   
     header {
       background: var(--dark-bg);
+      color: white;
       grid-column: 2 / span 5;
       font-size: 2.5rem;
-      padding: 2rem;
-      margin-bottom: var(--spacing);
+      /* padding: 2rem; */
+      margin-bottom: 1rem;
     }
   
     section {
       grid-column: 2 / 8;
       padding: 1rem;
       background: rgba(1, 44, 73, 0.9);
+      text-shadow: 2px 2px 1px black;
       font-size: 1.25rem;
       line-height: 1.5;
       margin-top: 3rem;
@@ -58,7 +64,8 @@ main {
   
     blockquote p {
       color: rgb(255, 255, 255);
-      background: rgba(1, 44, 73, 0.9);
+      /* background: rgba(1, 44, 73, 0.9); */
+      text-shadow: 3px 3px 5px black;
       border-radius: 0px;
       padding: 1px;
       font-size: 4rem;
